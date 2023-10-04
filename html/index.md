@@ -3,6 +3,11 @@
 - HTML stands for HyperText Markup Language. It is used to design web pages using markup language. HTML is the combination of Hypertext and Markup language. Hypertext defines the link between the web pages. Markup language is used to define the text document within tag which defines the structure of web pages.
 - HTML 5 is the fifth and current version of HTML. It has improved the markup available for documents and has introduced application programming interfaces(API) and Document Object Model(DOM).
 
+**How do you insert a comment in HTML?**
+
+- The comment tag ( <! — … -> )is used to insert comments in the source code. Comments are not displayed in the browsers.
+- You can use comments to explain your code, which can help you when you edit the source code at a later date. This is especially useful if you have a lot of code. Comments in HTML begins with “<!–” and ends with “–>”.
+
 **What are the key new features in HTML5?**
 
 - HTML5 introduces a number of new elements and attributes that can help you in building modern websites. Here is a set of some of the most prominent features introduced in HTML5.
@@ -45,6 +50,7 @@
 - Yes to both. In fact, both the `<header>` and `<footer>` tags are designed to serve their respective purposes in relation to whatever their parent “section” may be. So not only can the page `<body>` contain a header and a footer, but so can every `<article>` and `<section>` element. In fact, a `<header>` should be present for all of these, although a `<footer>` is not always necessary.
 
 **What is the minimum number of HTML5 tags that are required to create a Web page?**
+
 - Minimum 3 HTML5 tags are required to create a Web page, such as (`<HEAD>`, `<BODY>`, `<HTML>`).
 
 **What is `<!DOCTYPE>`? What are the different types of `<!DOCTYPE>` that are available?**
@@ -77,7 +83,7 @@
 - To create an item, the `itemscope` attribute is used.
 - To add a property to an item, the `itemprop` attribute is used on one of the item’s descendants.
 
-    ![Microdata](./assets/html-microdata.png)
+  ![Microdata](./assets/html-microdata.png)
 
 **Explain the `srcset` attribute in `img` tag**
 
@@ -96,3 +102,13 @@
 - take care of the language direction that you are using, as in English we read from left to right & top to bottom. But in traditional Japanese, the text is up to down & right to left.
 - while developing Multilingual sites should have to make sure that you are using the right date and currency formats according to the regions. For example, dates are represented as “April 4, 2001” in the US but in Europe, it will be something like “4 April 2001”.
 - one of the biggest mistakes that you can make is having overflow issues in your sites when a sentence translates into a different language. To avoid this issue you should always use shorter lengths of sentences.
+
+**What are key differences between Canvas and SVG?**
+| Canvas | SVG |
+| ------------ | ------------ |
+| Resolution dependent | Resolution independent |
+| Resolution dependent | Resolution independent |
+| No support for event handlers | Support for event handlers |
+| Poor text rendering capabilities | Best suited for applications with large rendering areas (Google Maps) |
+| You can save the resulting image as .png or .jpg | Slow rendering if complex (anything that uses the DOM a lot will be slow) |
+| Well suited for graphic-intensive games | Not suited for game applications |
