@@ -9,6 +9,7 @@ Welcome to the Front-End Interview Questions and Answers repository! This reposi
 - [TypeScript](./typescript/index.md)
 - [ReactJs](./reactjs/index.md)
 - [NextJs](./nextjs/index.md)
+- [SEO](./seo/seo.md)
 
 ## Table of Contents
 
