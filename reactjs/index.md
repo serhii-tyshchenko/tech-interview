@@ -1,18 +1,19 @@
+## Basics
 **What is React?**
 
-React is a JavaScript library for building user interfaces. It allows developers to create reusable UI components and manage the dynamic rendering of web pages efficiently.
+- React is a JavaScript library for building user interfaces. It allows developers to create reusable UI components and manage the dynamic rendering of web pages efficiently.
 
 **What are the major features of React?**
 
-Key features of React include a component-based architecture, virtual DOM for efficient updates, JSX for declarative UI, and a strong community with a rich ecosystem.
+- Key features of React include a component-based architecture, virtual DOM for efficient updates, JSX for declarative UI, and a strong community with a rich ecosystem.
 
 **What is JSX?**
 
-JSX (JavaScript XML) is a syntax extension for JavaScript used in React to describe the structure and content of user interfaces. It allows you to write HTML-like code in JavaScript files.
+- JSX (JavaScript XML) is a syntax extension for JavaScript used in React to describe the structure and content of user interfaces. It allows you to write HTML-like code in JavaScript files.
 
 **Is it possible to use React without JSX?**
 
-Yes, it is possible to use React without JSX. JSX is a syntax extension for JavaScript that allows you to write HTML-like code in your JavaScript files, but it is not required to use React.
+- Yes, it is possible to use React without JSX. JSX is a syntax extension for JavaScript that allows you to write HTML-like code in your JavaScript files, but it is not required to use React.
 
 Instead of using JSX, you can use plain JavaScript to create React elements. For example, you can use the React.createElement() method to create a new element:
 
@@ -32,39 +33,41 @@ An element is a plain JavaScript object that describes a component's UI at a spe
 
 A component is a reusable, self-contained piece of UI that can contain multiple elements.
 
+**What is the difference between `createElement` and `cloneElement`?**
+- `createElement` is what JSX gets transpiled to and is what React uses to create React Elements (object representations of some UI). `cloneElement` is used in order to clone an element and pass it new props.
+
+
 **How to create components in React?**
 
-Components in React can be created as either functional components (using functions) or class components (using ES6 classes).
+- Components in React can be created as either functional components (using functions) or class components (using ES6 classes).
 
 **How to bind methods or event handlers in JSX callbacks?**
 
-You can bind methods in class components using the `.bind()` method in the constructor or by using arrow functions.
+- You can bind methods in class components using the `.bind()` method in the constructor or by using arrow functions.
 
 **How to pass a parameter to an event handler or callback?**
 
-You can pass parameters to event handlers by using arrow functions in JSX or by binding the parameters when calling the event handler.
+- You can pass parameters to event handlers by using arrow functions in JSX or by binding the parameters when calling the event handler.
 
-**What are synthetic events in React?**
-
-Synthetic events are a cross-browser wrapper for browser-native events, providing consistent event handling across different browsers in React.
+## Props and State
 
 **What is state in React?**
 
-State in React is a JavaScript object used to store data that affects a component's behavior and rendering.
+- State in React is a JavaScript object used to store data that affects a component's behavior and rendering.
 
 **What are props in React?**
 
-Props (short for properties) are inputs to a React component. They allow data to be passed from a parent component to a child component.
+- Props (short for properties) are inputs to a React component. They allow data to be passed from a parent component to a child component.
 
 **What is the difference between state and props?**
 
-State is mutable and managed within a component, while props are immutable and passed to a component from its parent.
+- State is mutable and managed within a component, while props are immutable and passed to a component from its parent.
 
-State is used for internal component data, and props are used for communication between components.
+- State is used for internal component data, and props are used for communication between components.
 
 **Why should we not update the state directly?**
 
-Directly updating the state can lead to unpredictable behavior. React's state updates should be done using `setState()` or `useState()` to ensure proper rendering and component lifecycle management.
+- Directly updating the state can lead to unpredictable behavior. React's state updates should be done using `setState()` or `useState()` to ensure proper rendering and component lifecycle management.
 
 **Is the state updated synchronously?**
 
@@ -74,6 +77,8 @@ No, state updates in React are asynchronous. For example, when you call `setStat
 
 The `key` prop is a unique identifier for elements in a list. It helps React identify which items have changed, been added, or been removed when rendering arrays of elements, improving performance and preventing unexpected behavior.
 
+## Refs
+
 **What is the use of refs?**
 
 Refs in React are used to access the DOM directly or to interact with child components imperatively. They are often used for managing focus, triggering animations, or accessing specific elements.
@@ -81,6 +86,8 @@ Refs in React are used to access the DOM directly or to interact with child comp
 **How to create refs?**
 
 Refs can be created using the `React.createRef()` API in class components or using the `useRef` hook in functional components.
+
+## Optimization
 
 **React.memo VS useMemo**
 
@@ -91,6 +98,8 @@ React.memo is a higher-order component used for memoizing functional components 
 **How do you memoize a component?**
 
 You can memoize a functional component using `React.memo` by wrapping the component with it.
+
+## Virtual DOM
 
 **What is Virtual DOM?**
 
@@ -172,6 +181,8 @@ Lifting State Up is a pattern in React where you move the shared state of multip
 
 Fragments are a way to group multiple elements in React without introducing unnecessary container divs to the DOM. They improve code readability and reduce DOM clutter.
 
+## Redux
+
 **What is Flux?**
 
 Flux is an architectural pattern used for managing data flow in React applications. It enforces unidirectional data flow and helps manage complex state.
@@ -226,13 +237,6 @@ An action in Redux is a plain JavaScript object that describes an event or chang
 
 Constants in Redux are used to define unique action types, ensuring that action types are consistent and not prone to typos or duplication.
 
-**What is React Router? What hooks does React Router have?**
-
-React Router is a popular library for handling routing in React applications. It provides hooks like `useHistory`, `useLocation`, and `useParams` for managing routing-related functionality.
-
-**How React Router is different from the history library?**
-React Router builds on top of the history library to provide a more robust routing solution specifically tailored for React applications. It includes components and hooks for routing, whereas the history library is more low-level.
-
 ## Typescript
 
 **How do you create a functional component in React with TypeScript?**
@@ -280,3 +284,134 @@ TypeScript's strict mode helps catch more type-related errors. You can enable it
 **How can you use TypeScript's "strictNullChecks" option to improve code quality in a React TypeScript project?**
 
 Enabling "strictNullChecks" ensures that variables are not accessed before checking for null or undefined, reducing potential runtime errors.
+
+## Styling
+**What are Styled Components?**
+- styled-components is a JavaScript library for styling React applications. It removes the mapping between styles and components, and lets you write actual CSS augmented with JavaScript.
+
+**Give an example of Styled Components**
+- Lets create `<Title>` and `<Wrapper>` components with specific styles for each.
+
+```javascript
+const Title = styled.h1`
+  font-size: 1.5em;
+  text-align: center;
+  color: palevioletred;
+`
+const Wrapper = styled.section`
+  padding: 4em;
+  background: papayawhip;
+`
+```
+These two variables, `Title` and `Wrapper`, are now components that you can render just like any other react component.
+```javascript
+<Wrapper>
+  <Title>{'Lets start first styled component!'}</Title>
+</Wrapper>
+```
+
+**Is it recommended to use CSS In JS technique in React?**
+- React does not have any opinion about how styles are defined but if you are a beginner then good starting point is to define your styles in a separate *.css file as usual and refer to them using className. This functionality is not part of React but came from third-party libraries. But If you want to try a different approach (CSS-In-JS) then styled-components library is a good option.
+
+## React Router
+**What is React Router?**
+- React Router is a powerful routing library built on top of React that helps you add new screens and flows to your application incredibly quickly, all while keeping the URL in sync with what's being displayed on the page.
+- It provides hooks like `useHistory`, `useLocation`, and `useParams` for managing routing-related functionality.
+
+**How React Router is different from history library?**
+- React Router is a wrapper around the history library which handles interaction with the browser's `window.history` with its browser and hash histories. It also provides memory history which is useful for environments that don't have global history, such as mobile app development (React Native) and unit testing with Node.
+
+
+## React DOM
+**What is the use of react-dom package?**
+- The react-dom package provides DOM-specific methods that can be used at the top level of your app. Most of the components are not required to use this module. Some of the methods of this package are:
+  1. render()
+  2. hydrate()
+  3. unmountComponentAtNode()
+  4. findDOMNode()
+  5. createPortal()
+
+**What is the difference between React and ReactDOM?**
+- The `react` package contains `React.createElement()`, `React.Component`, `React.Children`, and other helpers related to elements and component classes. You can think of these as the isomorphic or universal helpers that you need to build components. The `react-dom` package contains `ReactDOM.render()`, and in `react-dom/server` we have server-side rendering support with `ReactDOMServer.renderToString()` and `ReactDOMServer.renderToStaticMarkup()`.
+
+**Why ReactDOM is separated from React?**
+- The React team worked on extracting all DOM-related features into a separate library called ReactDOM. React v0.14 is the first release in which the libraries are split. By looking at some of the packages, `react-native`, `react-art`, `react-canvas`, and `react-three`, it has become clear that the beauty and essence of React has nothing to do with browsers or the DOM.
+To build more environments that React can render to, React team planned to split the main React package into two: react and react-dom. This paves the way to writing components that can be shared between the web version of React and React Native.
+
+
+**What is the purpose of `render` method of react-dom?**
+- This method is used to render a React element into the DOM in the supplied container and return a reference to the component. If the React element was previously rendered into container, it will perform an update on it and only mutate the DOM as necessary to reflect the latest changes.
+
+## Events
+**How events are different in React?**
+- Handling events in React elements has some syntactic differences:
+  1. React event handlers are named using camelCase, rather than lowercase.
+  2. With JSX you pass a function as the event handler, rather than a string.
+
+**What are synthetic events?**
+- SyntheticEvent is a cross-browser wrapper around the browser's native event. Its API is same as the browser's native event, including `stopPropagation()` and `preventDefault()`, except the events work identically across all browsers.
+
+**How do you pass an event handler to a component?**
+- You can pass event handlers and other functions as props to child components. It can be used in child component as below.
+```javascript
+<button onClick={this.handleClick}>
+```
+
+**How to programmatically trigger click event in React?**
+- You could use the `ref` prop to acquire a reference to the underlying HTMLInputElement object through a callback, store the reference as a class property, then use that reference to later trigger a click from your event handlers using the HTMLElement.click method.
+This can be done in two steps:
+  1. Create `ref` in render method:
+  ```javascript
+	<input ref={input => this.inputElement = input} />
+  ```
+	2. Apply `click` event in your event handler:
+  ```javascript
+  this.inputElement.click()
+  ```
+**What are the Pointer Events supported in React?**
+- Pointer Events provide a unified way of handling all input events. In the old days we had a mouse and respective event listeners to handle them but nowadays we have many devices which don't correlate to having a mouse, like phones with touch surface or pens. We need to remember that these events will only work in browsers that support the Pointer Events specification.
+- The following event types are now available in React DOM:
+  1. onPointerDown
+  2. onPointerMove
+	3. onPointerUp
+	4. onPointerCancel
+	5. onGotPointerCapture
+	6. onLostPointerCapture
+	7. onPointerEnter
+	8. onPointerLeave
+	9. onPointerOver
+	10. onPointerOut
+
+**How to bind methods or event handlers in JSX callbacks?**
+- There are 3 possible ways to achieve this:
+	1. Binding in Constructor: In JavaScript classes, the methods are not bound by default. The same thing applies for React event handlers defined as class methods. Normally we bind them in constructor.
+	2. Public class fields syntax: If you don't like to use bind approach then public class fields syntax can be used to correctly bind callbacks.
+	3. Arrow functions in callbacks: You can use arrow functions directly in the callbacks.
+- *Note:* If the callback is passed as prop to child components, those components might do an extra re-rendering. In those cases, it is preferred to go with `.bind()` or public class fields syntax approach considering performance.
+
+
+## Diff
+**What is strict mode in React?**
+- `React.StrictMode` is a useful component for highlighting potential problems in an application. Just like `<Fragment>`, `<StrictMode>` does not render any extra DOM elements. It activates additional checks and warnings for its descendants. These checks apply for development mode only.
+
+**Why do we use arrow functions in React and what problem do they solve?**
+- The `this` keyword works differently in arrow functions. They do not bind their own `this`, instead, they inherit one from the parent scope, which is called “lexical scoping”. If we didn’t use arrow functions, we would need to bind `this` to the parent, which is normally done in the constructor.
+
+**What are keys in React and why do we need them?**
+- In short, keys are used in React for diffing algorithm. With the help of keys React can tell which DOM node was changed and update only that one. They are essential when mapping over arrays.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
