@@ -4,6 +4,7 @@ Welcome to the Front-End Interview Questions and Answers repository! This reposi
 
 ## Navigation
 - [HTML](./html/index.md)
+- [CSS](./css/css.md)
 - [Markup](./markup/index.md)
 - [JavaScript](./javascript/index.md)
 - [TypeScript](./typescript/index.md)
