@@ -1,3 +1,18 @@
+## Table of Contents
+
+- [Basics](#basics)
+- [Props and State](#props-and-state)
+- [Refs](#refs)
+- [Optimization](#optimization)
+- [Virtual DOM](#virtual-dom)
+- [Redux](#redux)
+- [Typescript](#typescript)
+- [Styling](#styling)
+- [React Router](#react-router)
+- [React DOM](#react-dom)
+- [Events](#events)
+- [Diff](#diff)
+
 ## Basics
 
 **What is React?**
@@ -18,13 +33,13 @@
 
 - Instead of using JSX, you can use plain JavaScript to create React elements. For example, you can use the React.createElement() method to create a new element:
 
-```javascript
-const element = React.createElement(
-  'h1',
-  { className: 'greeting' },
-  'Hello, world!'
-);
-```
+  ```javascript
+  const element = React.createElement(
+    'h1',
+    { className: 'greeting' },
+    'Hello, world!'
+  );
+  ```
 
 - This creates a new `h1` element with a `className` of 'greeting' and a text content of 'Hello, world!'.
 
@@ -243,11 +258,11 @@ const element = React.createElement(
 
 - You can create a functional component by defining a function that returns JSX. For example:
 
-```javascript
-const MyComponent: React.FC = () => {
-  return <div>Hello, React!</div>;
-};
-```
+  ```javascript
+  const MyComponent: React.FC = () => {
+    return <div>Hello, React!</div>;
+  };
+  ```
 
 **How can you handle form input in React with TypeScript, and how do you type input event handlers?**
 
@@ -295,25 +310,25 @@ const MyComponent: React.FC = () => {
 
 - Lets create `<Title>` and `<Wrapper>` components with specific styles for each.
 
-```javascript
-const Title = styled.h1`
-  font-size: 1.5em;
-  text-align: center;
-  color: palevioletred;
-`;
-const Wrapper = styled.section`
-  padding: 4em;
-  background: papayawhip;
-`;
-```
+  ```javascript
+  const Title = styled.h1`
+    font-size: 1.5em;
+    text-align: center;
+    color: palevioletred;
+  `;
+  const Wrapper = styled.section`
+    padding: 4em;
+    background: papayawhip;
+  `;
+  ```
 
-These two variables, `Title` and `Wrapper`, are now components that you can render just like any other react component.
+- These two variables, `Title` and `Wrapper`, are now components that you can render just like any other react component.
 
-```javascript
-<Wrapper>
-  <Title>{'Lets start first styled component!'}</Title>
-</Wrapper>
-```
+  ```javascript
+  <Wrapper>
+    <Title>{'Lets start first styled component!'}</Title>
+  </Wrapper>
+  ```
 
 **Is it recommended to use CSS In JS technique in React?**
 
@@ -370,19 +385,19 @@ These two variables, `Title` and `Wrapper`, are now components that you can rend
 
 - You can pass event handlers and other functions as props to child components. It can be used in child component as below.
 
-```javascript
-<button onClick={this.handleClick}>
-```
+  ```javascript
+  <button onClick={this.handleClick}>
+  ```
 
 **How to programmatically trigger click event in React?**
 
 - You could use the `ref` prop to acquire a reference to the underlying HTMLInputElement object through a callback, store the reference as a class property, then use that reference to later trigger a click from your event handlers using the HTMLElement.click method.
-  This can be done in two steps:
+- This can be done in two steps:
   1. Create `ref` in render method:
   ```javascript
   <input ref={(input) => (this.inputElement = input)} />
   ```
-      2. Apply `click` event in your event handler:
+  2. Apply `click` event in your event handler:
   ```javascript
   this.inputElement.click();
   ```
