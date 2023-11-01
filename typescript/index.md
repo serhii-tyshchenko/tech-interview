@@ -8,7 +8,7 @@
 
 **How do you declare a variable with a specific type in TypeScript?**
 
-You can declare a variable with a specific type using the colon (:) syntax. For example:
+- You can declare a variable with a specific type using the colon (:) syntax. For example:
 
 ```typescript
 let age: number = 30;
@@ -48,7 +48,7 @@ let age: number = 30;
 
 **How does TypeScript handle optional properties in interfaces?**
 
-You can make properties optional in interfaces by using a ? symbol after the property name, like
+- You can make properties optional in interfaces by using a ? symbol after the property name, like
 
 ```typescript
 interface Person {

@@ -33,8 +33,7 @@
 
 - API routes are serverless functions in Next.js used to handle backend logic and serve data. They reside in the pages/api directory.
 
-**How can you fetch data in a Next.js component on the server side using getServerSideProps?
-**
+**How can you fetch data in a Next.js component on the server side using getServerSideProps?**
 
 - You can export an async function called getServerSideProps from your page component. It runs on the server and provides data to the component.
 
