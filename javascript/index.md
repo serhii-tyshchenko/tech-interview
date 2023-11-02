@@ -1,3 +1,42 @@
+**What is hoisting?**
+
+- Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution.
+
+**What is the Temporal Dead Zone?**
+
+- The Temporal Dead Zone is a behavior in JavaScript that occurs when declaring a variable with the `let` and `const` keywords, but not with `var`.
+- In ECMAScript 6, accessing a `let` or `const` variable before its declaration (within its scope) causes a `ReferenceError`. The time span when that happens, between the creation of a variable’s binding and its declaration, is called the temporal dead zone.
+
+**What is pooling?**
+
+- The server needs to be regularly monitored for updates. The aim is to check for the presence of new comments. This process is considered as pooling. It checks for the updates almost every 5 seconds. Pooling helps keep an eye on the users and ensure there is no negative information on servers.
+
+**What does asynchronous mean?**
+
+- Normally, a given program’s code runs straight along, with only one thing happening at once. If a function relies on the result of another function, it has to wait for the other function to finish and return, and until that happens, the entire program is essentially stopped from the perspective of the user.
+- Asynchronous techniques are very useful, particularly in web programming. When a web app runs in a browser and it executes an intensive chunk of code without returning control to the browser, the browser can appear to be frozen. This is called blocking; the browser is blocked from continuing to handle user input and perform other tasks until the web app returns control of the processor.
+- Asynchronous solves this problem by not waiting for other operations to complete. Imagine it like this: You are cooking pasta. You put water on the stove and are waiting for it to start boiling. That doesn’t mean you shouldn’t do anything until that, right? You can start preparing the seasoning, put up the plates, or anything else you might want to do. After the water starts boiling, you get back to it and put the pasta in it. That’s pretty much how asynchronous functions work.
+
+**What is memoization?**
+
+- Memoization is a programming technique that attempts to increase a function’s performance by caching its previously computed results. Each time a memoized function is called, its parameters are used to index the cache. If the data is present, then it can be returned, without executing the entire function. Otherwise the function is executed and then the result is added to the cache.
+
+  ```javascript
+  function memoize(func) {
+    const storage = {};
+    return function (val) {
+      if (storage[val]) {
+        console.log('In Storage');
+        return storage[val];
+      } else {
+        console.log('Computating');
+        storage[val] = func(vaL);
+        return storage[val];
+      }
+    };
+  }
+  ```
+
 **What are data types in JavaScript?**
 
 - JavaScript has two data types:
@@ -57,6 +96,8 @@
 **Explain how prototypal inheritance works?**
 
 - Prototypal inheritance means that objects can inherit properties and methods from other objects through their prototype chain. When you access a property or method on an object, JavaScript looks up the prototype chain to find it.
+
+  ![Microdata](./assets/prototype-chain.png)
 
 **How do you assign default values to variables?**
 
@@ -203,3 +244,118 @@
 
 - `window` is the top-level object in the browser's JavaScript object hierarchy, and it represents the browser window or tab that the script is running in. It provides access to various properties and methods related to the browser window, such as `window.innerWidth` and `window.location`.
 - `document` is a property of the `window` object and represents the current web page loaded in the browser. It provides access to the HTML content and allows manipulation of the DOM (Document Object Model) For example, you can use `document.getElementById()` to get a reference to an HTML element by its ID, and then manipulate its properties or contents..
+
+## Array methods
+
+**`slice` vs `splice`**
+
+- The `slice()` method returns the selected elements in an array as a new array object. It selects the elements starting at the given start argument and ends at the given optional end argument without including the last element. If you omit the second argument then it selects till the end.
+
+- The `splice()` method is used to either adds/remove items to/from an array and then return the removed item. The first argument specifies the array position for insertion or deletion whereas the optional second argument indicates the number of elements to be deleted. Each additional argument is added to the array.
+
+- Note: The `splice` method modifies the original array and returns the deleted array.
+
+## Functions
+
+**What are lambda or arrow functions?**
+
+- An arrow function is a shorter syntax for a function expression and does not have its own this, arguments, or super reference. A lambda function is called an anonymous function (no label). These functions are best suited for non-method functions (not in a class), and they cannot be used as constructors.
+
+**What is a first-class function?**
+
+- First-class functions mean when functions in that language are treated like any other variable. A function can be passed as an argument to other functions, can be returned by another function, and can be assigned as a value to a variable.
+
+**What is a callback function?**
+
+- A callback function is a function that is passed into another function as an argument which is then invoked inside the outer function.
+
+**What is a pure function?**
+
+- Any function that does not change the internal state of one of its arguments or the value of some external data. It must only depend on its input arguments. They do not have any side effects like network or database calls. If you call this function n times with the same arguments it will return the same results every time.
+
+**What is a higher-order function?**
+
+- A higher-order function is a function that accepts another function as an argument or returns a function as a return value or both.
+
+## Events
+
+**`Event.target` vs `event.currentTarget`**
+
+- `event.target` and `event.currentTarget` are properties commonly used in JavaScript when handling events. They refer to different elements involved in an event and can often be confused.
+
+  - `event.target`: This property refers to the element that triggered the event. It identifies the most specific element that initially caused the event. For instance, if you have a click event on a button inside a div, clicking the button will make the button element the `event.target`.
+
+  - `event.currentTarget`: This property refers to the element that the event handler is currently attached to. It does not change as the event bubbles up or propagates through the DOM (Document Object Model). It always remains the element to which the event handler is bound.
+
+- The difference can be more evident when dealing with nested elements or event delegation. Event delegation is the practice of using a single event listener to manage multiple elements. In this context, `event.currentTarget` remains constant (representing the element the event is delegated to), while `event.target` can vary based on the actual target that triggered the event within the delegated element.
+
+- Here's an example to illustrate this difference:
+
+  ```html
+  <div id="outer">
+    <button id="inner">Click me</button>
+  </div>
+  ```
+
+  ```javascript
+  document.getElementById('outer').addEventListener('click', function (event) {
+    console.log('Current Target: ' + event.currentTarget.id);
+    console.log('Target: ' + event.target.id);
+  });
+  ```
+
+- In this case, clicking the button with the ID "inner" will log:
+
+  - `Current Target: outer` (because the event listener is attached to the "outer" div)
+  - `Target: inner` (since the button triggered the event)
+
+- Understanding these properties is crucial for handling events in JavaScript, especially when dealing with complex DOM structures or implementing event delegation.
+
+**`stopPropagation()` vs `stopImmediatePropagation()`**
+
+- Both `stopPropagation()` and `stopImmediatePropagation()` are methods used in JavaScript to manage event propagation in the DOM. They affect how events bubble or propagate through the DOM hierarchy.
+
+  - **`stopPropagation()`:** This method is used within an event handler to prevent the further propagation of the current event in the capturing and bubbling phases. When `stopPropagation()` is called on an event, it halts the event from propagating up the DOM tree, but it doesn’t stop the event from being executed on the current target. Other event handlers on the same element will still be executed.
+
+    ```javascript
+    element.addEventListener('click', function (event) {
+      event.stopPropagation();
+      // Other click handlers on the same element will still be triggered
+    });
+    ```
+
+  - **`stopImmediatePropagation()`:** This method, when called within an event handler, stops the event from propagating immediately and prevents any other handlers on the same element from being executed. It not only prevents the event from reaching the elements further up the DOM tree, but also stops other event handlers on the same element from running.
+
+    ```javascript
+    element.addEventListener('click', function (event) {
+      event.stopImmediatePropagation();
+      // Other click handlers on the same element will not be triggered
+    });
+    ```
+
+- Understanding these methods is crucial when handling events in a complex DOM structure and wanting to control how events propagate through the elements.
+
+**Differents between `load` and `DOMContentLoaded`?**
+
+- The `load` and `DOMContentLoaded` events are both related to the loading and initialization of a web page in the browser, but they differ in terms of when they are triggered and what they signify.
+
+  - **`DOMContentLoaded` event:**
+    - This event is fired when the HTML document has been completely loaded and parsed, but external resources like stylesheets, images, and subframes may still be loading.
+    - It indicates that the DOM content is ready, allowing you to interact with and manipulate the document's structure. This event is often used to run JavaScript that requires access to the DOM elements but doesn't need to wait for the complete loading of external resources.
+    - It's usually the preferred event to use when you want to execute JavaScript as soon as the DOM is ready.
+
+  ```javascript
+  document.addEventListener('DOMContentLoaded', function () {
+    // This code runs when the DOM is fully loaded and ready for manipulation
+  });
+  ```
+
+  - **`load` event:**
+    - This event is triggered when the entire page, including all its external resources (images, stylesheets, scripts, etc.), has finished loading.
+    - It signifies that the entire page, including all its resources, is ready. This event is typically used for tasks that require all elements, including images and other resources, to be loaded.
+
+  ```javascript
+  window.addEventListener('load', function () {
+    // This code runs when the entire page and its resources (images, styles, etc.) are loaded
+  });
+  ```
