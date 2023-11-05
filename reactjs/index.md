@@ -73,7 +73,39 @@
 
 **What are props in React?**
 
-- Props (short for properties) are inputs to a React component. They allow data to be passed from a parent component to a child component.
+- Props are inputs to components. They are single values or objects containing a set of values that are passed to components on creation using a naming convention similar to HTML-tag attributes. They are data passed down from a parent component to a child component.
+- The primary purpose of props in React is to provide following component functionality:
+  1. Pass custom data to your component.
+  2. Trigger state changes.
+
+**Why we need to be careful when spreading props on DOM elements?**
+
+- When we spread props we run into the risk of adding unknown HTML attributes, which is a bad practice. Instead we can use prop destructuring with `...rest` operator, so it will add only required props.
+
+**What is `children` prop?**
+
+- `children` is a prop (`this.props.children`) that allows you to pass components as data to other components, just like any other prop you use. Component tree put between component's opening and closing tag will be passed to that component as children prop.
+- There are several methods available in the React API to work with this prop. These include `React.Children.map`, `React.Children.forEach`, `React.Children.count`, `React.Children.only`, `React.Children.toArray`.
+
+**What is the `key` prop, and what is the benefit of using it in arrays of elements?**
+
+- The `key` prop is a unique identifier for elements in a list. It helps React identify which items have changed, been added, or been removed when rendering arrays of elements, improving performance and preventing unexpected behavior.
+
+**What are render props?**
+
+- Render Props is a simple technique for sharing code between components using a prop whose value is a function. The below component uses render prop which returns a React element.
+  ```javascript
+  <DataProviderrender = {data => (<h1>{`Hello ${data.target}`}</h1>)}/>
+  ```
+- Libraries such as React Router and DownShift are using this pattern.
+
+**Can child component change the props passed from parent component?**
+
+- No. Whether it is a class component or function component, props can never be updated in the child component.
+
+**Why we pass props as an argument in `super`?**
+
+- A child class constructor cannot make use of this reference until the `super()` method has been called. The same applies to ES6 sub-classes as well. The main reason for passing props parameter to `super()` call is to access `this.props` in your child constructors.
 
 **What is the difference between state and props?**
 
@@ -89,10 +121,6 @@
 
 - No, state updates in React are asynchronous. For example, when you call `setState()`, React batches state updates for performance reasons and may batch multiple updates together.
 
-**What is the `key` prop, and what is the benefit of using it in arrays of elements?**
-
-- The `key` prop is a unique identifier for elements in a list. It helps React identify which items have changed, been added, or been removed when rendering arrays of elements, improving performance and preventing unexpected behavior.
-
 ## Refs
 
 **What is the use of refs?**
@@ -105,9 +133,28 @@
 
 ## Optimization
 
-**React.memo VS useMemo**
+**How to prevent child component from re-rendering?**
 
-- React.memo is a higher-order component used for memoizing functional components to prevent unnecessary re-renders.
+- We can use the `shouldComponentUpdate` method or can use pure components in the case of class components. In functional components, we can make use of `React.memo` hook.
+
+**What would be the common mistake of function being called every time the component renders?**
+
+- You need to make sure that function is not being called while passing the function as a parameter.
+
+  ```javascript
+  render() {
+    // Wrong: handleClick is called instead of passed as a reference!
+    return <button onClick={this.handleClick()}>{'Click Me'}</button>
+  }
+  ```
+
+**What is `React.memo` function?**
+
+- Class components can be restricted from re-rendering when their input props are the same using `PureComponent` or `shouldComponentUpdate`. Now you can do the same with function components by wrapping them in `React.memo`.
+
+**`React.memo` VS `useMemo`**
+
+- `React.memo` is a higher-order component used for memoizing functional components to prevent unnecessary re-renders.
 
 - `useMemo` is a hook used for memoizing values in functional components to avoid redundant calculations.
 

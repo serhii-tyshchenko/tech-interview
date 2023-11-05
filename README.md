@@ -11,6 +11,7 @@ Welcome to the Front-End Interview: Questions and Answers repository! This repos
 - [ReactJs](./reactjs/index.md)
 - [NextJs](./nextjs/index.md)
 - [SEO](./seo/seo.md)
+- [Diff](./diff/questions.md)
 
 ## Table of Contents
 

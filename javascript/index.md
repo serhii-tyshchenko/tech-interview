@@ -1,3 +1,38 @@
+**What is memory leak? Give an example**
+- In essence, memory leaks can be defined as memory that is not required by an application anymore that for some reason is not returned to the operating system or the pool of free memory. 
+- Types of Common JavaScript Leaks
+  - Accidental global variables
+
+    ```javascript
+    function foo(arg) {
+      bar = "this is a hidden global variable";
+    }
+    ```
+  - Forgotten timers or callbacks
+  - Out of DOM references
+    ```javascript
+    var elements = {
+      button: document.getElementByld('button'),
+      image: document.getElementByld('image'),
+      text: document.getElementById('text')
+      };
+      function doStuff() {
+        image.src = 'http://some.url/image';
+        button.click();
+        console.log(text.innerHTML);
+        // Much more logic
+      }
+      function removeButton() {
+        // The button is a direct child of body.
+        document.body.removechild(document.getElementBy!d('button'));
+        // At this point, we still have a reference to a button in the global
+        // elements dictionary. In other words, the button element is still in
+        // memory and cannot be collected by the GC.
+      }
+    ```
+  - Closures
+
+
 **What is hoisting?**
 
 - Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution.
