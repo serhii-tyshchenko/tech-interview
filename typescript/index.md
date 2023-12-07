@@ -113,7 +113,7 @@ interface Person {
 
 - The `super` keyword is used to call methods or access properties of a parent class in a derived class.
 
-** What is the purpose of the "private," "protected," and "public" access modifiers in TypeScript classes? **
+**What is the purpose of the "private," "protected," and "public" access modifiers in TypeScript classes?**
 
 - They control the visibility and accessibility of class members. private restricts access, protected allows access in derived classes, and public allows access from anywhere.
 
@@ -204,3 +204,55 @@ interface Person {
 **How can you use TypeScript with popular build tools like Webpack or Babel?**
 
 - You can configure Webpack or Babel to process TypeScript files using appropriate loaders and plugins, ensuring TypeScript is transpiled correctly.
+
+**What is the difference between `any`, `unknown` and `never`?
+- In TypeScript, `any`, `unknown`, and `never` are three distinct types that serve different purposes in the type system.
+
+1. **`any`**:
+   - **Description**: The `any` type is the most permissive type in TypeScript. It essentially disables static type checking for a particular value or expression.
+   - **Use Cases**: Use `any` when you want to opt out of TypeScript's type checking for a specific variable or value. It is often used when migrating JavaScript code to TypeScript or when dealing with dynamic or uncertain types.
+
+   ```typescript
+   let someValue: any = "Hello, World!";
+   console.log(someValue.length); // No type checking errors, even though length is not a property of all values
+   ```
+
+   While `any` provides flexibility, it comes at the cost of losing the benefits of static type checking.
+
+2. **`unknown`**:
+   - **Description**: The `unknown` type is a safer alternative to `any`. Variables of type `unknown` require a type assertion or a type check before they can be used.
+   - **Use Cases**: Use `unknown` when the type of a value is not known at compile time, and you want to enforce type checking before performing operations on that value.
+
+   ```typescript
+   let userInput: unknown = getUserInput();
+   
+   // Type assertion
+   let userName: string = userInput as string;
+
+   // Type check
+   if (typeof userInput === "string") {
+       let userName: string = userInput;
+   }
+   ```
+
+   `unknown` encourages you to perform type checking before using values, making the code more robust.
+
+3. **`never`**:
+   - **Description**: The `never` type represents values that will never occur. It is often used to indicate functions that throw exceptions, enter infinite loops, or have unreachable endpoints.
+   - **Use Cases**: Use `never` when you have a function that never returns (e.g., throws an error or enters an infinite loop).
+
+   ```typescript
+   function throwError(message: string): never {
+       throw new Error(message);
+   }
+
+   function infiniteLoop(): never {
+       while (true) {
+           // code that never exits
+       }
+   }
+   ```
+
+   `never` is useful in scenarios where the function is not expected to complete normally.
+
+- In summary, `any` provides maximum flexibility but sacrifices type safety, `unknown` adds a layer of type safety by requiring explicit type checks, and `never` is used to indicate values or functions that will never occur or complete. The choice between them depends on the specific requirements and design goals of your code.

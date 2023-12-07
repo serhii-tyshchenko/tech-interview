@@ -1,13 +1,16 @@
 **What is memory leak? Give an example**
-- In essence, memory leaks can be defined as memory that is not required by an application anymore that for some reason is not returned to the operating system or the pool of free memory. 
+
+- In essence, memory leaks can be defined as memory that is not required by an application anymore that for some reason is not returned to the operating system or the pool of free memory.
 - Types of Common JavaScript Leaks
+
   - Accidental global variables
 
     ```javascript
     function foo(arg) {
-      bar = "this is a hidden global variable";
+      bar = 'this is a hidden global variable';
     }
     ```
+
   - Forgotten timers or callbacks
   - Out of DOM references
     ```javascript
@@ -31,7 +34,6 @@
       }
     ```
   - Closures
-
 
 **What is hoisting?**
 
@@ -132,7 +134,7 @@
 
 - Prototypal inheritance means that objects can inherit properties and methods from other objects through their prototype chain. When you access a property or method on an object, JavaScript looks up the prototype chain to find it.
 
-  ![Microdata](./assets/prototype-chain.png)
+  ![Prototype chain](./assets/prototype-chain.png)
 
 **How do you assign default values to variables?**
 
