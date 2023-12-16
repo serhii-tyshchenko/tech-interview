@@ -1,6 +1,6 @@
-# Front-End Interview: Questions and Answers
+# Tech Interview: Questions and Answers
 
-Welcome to the Front-End Interview: Questions and Answers repository! This repository contains a collection of typical questions and answers that can help you prepare for front-end developer job interviews. Whether you are a beginner looking to break into the field or an experienced developer looking to brush up on your skills, this resource can be valuable to you.
+Welcome to the Tech Interview: Questions and Answers repository! This repository contains a collection of typical questions and answers that can help you prepare for front-end developer job interviews. Whether you are a beginner looking to break into the field or an experienced developer looking to brush up on your skills, this resource can be valuable to you.
 
 ## Navigation
 - [HTML](./html/index.md)
@@ -26,7 +26,7 @@ Welcome to the Front-End Interview: Questions and Answers repository! This repos
 To get started with this repository, you can clone it to your local machine using the following command:
 
 ```bash
-git clone https://github.com/serhii-tyshchenko/front-end-interview.git
+git clone https://github.com/serhii-tyshchenko/tech-interview.git
 ```
 
 Once you have the repository cloned, you can explore the questions and answers in the provided markdown files.
