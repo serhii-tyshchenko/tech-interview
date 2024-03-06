@@ -11,6 +11,7 @@
 - [React Router](#react-router)
 - [React DOM](#react-dom)
 - [Events](#events)
+- [Hooks](#hooks)
 - [Diff](#diff)
 
 ## Basics
@@ -469,6 +470,16 @@
   2.  Public class fields syntax: If you don't like to use bind approach then public class fields syntax can be used to correctly bind callbacks.
   3.  Arrow functions in callbacks: You can use arrow functions directly in the callbacks.
 - _Note:_ If the callback is passed as prop to child components, those components might do an extra re-rendering. In those cases, it is preferred to go with `.bind()` or public class fields syntax approach considering performance.
+
+## Hooks
+**What is the purpose of the `useLayoutEffect` hook?**
+- `useLayoutEffect` is similar to `useEffect`, but it fires synchronously after all DOM mutations. It is often used for measuring and synchronizing layout.
+
+**What is the purpose of the `useImperativeHandle` hook?**
+- React supports code splitting, allowing developers to split their code into smaller chunks that are loaded on demand, improving performance by reducing the initial bundle size.
+
+**Explain the concept of the `useDebugValue` hook.**
+- `useDebugValue` is used to display a label for custom hooks in React DevTools.
 
 ## Diff
 
