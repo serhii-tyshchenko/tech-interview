@@ -168,6 +168,27 @@ b.foo(); // Output: { foo: a };
 ```
 - ***Explanation:*** This question tests your understanding of the value of `this` in JavaScript functions. In this case, the function `a` is called as a method of the object `b`, so the value of this inside a will refer to the object `b`. The output will be the object `b` itself.
 
+**Guess the output**
+```javascript
+var y = 1;
+if (function f() {}) {
+ y += typeof f;
+}
+console.log(y); // Output: 1undefined
+```
+- ***Explanation:*** The `if` condition is evaluated at runtime so the function `f` does not get the memory at creation phase and hence the reference to `f` is undefined. `if` just takes an expression and evaluates it to `true` or `false`. It does not declare the function in the global space so the function `f` is not defined.
+
+**Guess the output**
+```javascript
+function func() {
+ const a = b = c = 1
+}
+func()
+console.log(typeof a, typeof b, typeof c) // Output “undefined”,”number”,”number”.
+```
+- ***Explanation:*** In javascript, the assignment happens from right to left. So, `const` statement is only applicable to `a`, not `b` and `c`. All the other variables are considered Global without the `var/let/const` identifier, hence `b` and `c` will be globally scoped.
+`b` and `c` are accessible outside the `func` and `a` is function scoped hence `typeof a` results in `undefined`.
+
 <!-- 1. Given an array of names, create an <li> with them.
 2. Given an array of numbers and dates. Calculate the sum of elements greater than 150
 3. Write a function that outputs the smaller of two numbers
